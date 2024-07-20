@@ -40,6 +40,7 @@ dependencies {
     implementation libs.activity
     implementation libs.constraintlayout
     implementation libs.firebase.crashlytics.buildtools
+    implementation libs.filament.android
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
@@ -48,5 +49,7 @@ dependencies {
     implementation("com.google.guava:guava:31.0.1-android")
     implementation("org.reactivestreams:reactive-streams:1.0.4")
     implementation "androidx.concurrent:concurrent-futures:1.2.0"
+    implementation 'com.github.MrNouri:DynamicSizes:1.0'
+    implementation 'androidx.sqlite:sqlite:2.1.0'
 
 }

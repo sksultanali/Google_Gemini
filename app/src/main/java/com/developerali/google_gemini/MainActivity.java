@@ -1,5 +1,6 @@
 package com.developerali.google_gemini;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -60,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }, executor);
             }
+        });
+
+
+
+        binding.btnChat.setOnClickListener(v->{
+            startActivity(new Intent(MainActivity.this, ChatActivity.class));
         });
 
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/_5mdp">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_45mdp"
+        android:layout_marginTop="@dimen/_5mdp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/_5mdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_7mdp"
+            android:paddingTop="@dimen/_5mdp"
+            android:paddingEnd="@dimen/_5mdp"
+            android:paddingBottom="@dimen/_5mdp"
+            android:text="TextView"
+            android:textSize="@dimen/_12font_mdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingEnd="@dimen/_7mdp"
+            android:paddingBottom="@dimen/_4mdp"
+            android:text="00:00 pm"
+            android:textSize="@dimen/_9font_mdp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayoutModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5mdp"
+        android:layout_marginEnd="@dimen/_45mdp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/messageModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_7mdp"
+            android:paddingTop="@dimen/_5mdp"
+            android:paddingEnd="@dimen/_5mdp"
+            android:paddingBottom="@dimen/_5mdp"
+            android:text="TextView"
+            android:textSize="@dimen/_12font_mdp" />
+        <TextView
+            android:id="@+id/messageTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingEnd="@dimen/_7mdp"
+            android:paddingBottom="@dimen/_4mdp"
+            android:text="00:00 pm"
+            android:textSize="@dimen/_8font_mdp" />
+    </LinearLayout>
+
+</LinearLayout>
