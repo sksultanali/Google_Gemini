@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,6 +28,7 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -87,6 +89,10 @@ public class ChatActivity extends AppCompatActivity {
                 binding.messageBox.setError("*");
             } else {
 
+
+
+
+
                 List<Content> history = getChatHistory();
                 ChatFutures chat = model.startChat(history);
 
@@ -113,6 +119,7 @@ public class ChatActivity extends AppCompatActivity {
                         userMessageBuilder.addText(resultText);
                         Content modelMessage = userMessageBuilder.build();
 
+
                         insertMessage("model", resultText);
                         runOnUiThread(() -> chatAdapter.addMessage(modelMessage));
                     }
@@ -126,11 +133,63 @@ public class ChatActivity extends AppCompatActivity {
         });
 
 
+        // Launch Image Picker
+//        ImagePicker.with(this)
+//                .crop()                 // Crop image(Optional), Check activity_main.xml for dimensions
+//                .compress(1024)         // Final image size will be less than 1 MB
+//                .maxResultSize(1080, 1080)   // Final image resolution will be less than 1080 x 1080
+//                .start();
+
 
 
 
 
     }
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == ImagePicker.IMAGE_PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
+//            Uri uri = data.getData();
+//            try {
+//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+//                imageView.setImageBitmap(bitmap);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//                Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
+
+//    public List<Content> getChatHistory() {
+//        List<Content> history = new ArrayList<>();
+//        SQLiteDatabase db = dbHelper.getReadableDatabase();
+//        Cursor cursor = db.query(DatabaseHelper.TABLE_NAME, null, null, null, null, null, null);
+//
+//        while (cursor.moveToNext()) {
+//            String role = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_ROLE));
+//            String text = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TEXT));
+//
+//            // Retrieve image data from BLOB column
+//            byte[] imageBlob = cursor.getBlob(cursor.getColumnIndex("image"));
+//            Bitmap image = (imageBlob != null) ? BitmapFactory.decodeByteArray(imageBlob, 0, imageBlob.length) : null;
+//
+//            Content.Builder userContentBuilder = new Content.Builder();
+//            userContentBuilder.setRole(role);
+//            userContentBuilder.addText(text);
+//
+//            // Add image if available
+//            if (image != null) {
+//                userContentBuilder.image(image);
+//            }
+//
+//            Content userContent = userContentBuilder.build();
+//            history.add(userContent);
+//        }
+//        cursor.close();
+//        return history;
+//    }
 
     public List<Content> getChatHistory() {
         List<Content> history = new ArrayList<>();
@@ -159,4 +218,21 @@ public class ChatActivity extends AppCompatActivity {
 
         db.insert(DatabaseHelper.TABLE_NAME, null, values);
     }
+
+//    public void insertMessage(String role, String text, Bitmap image) {
+//        SQLiteDatabase db = dbHelper.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(DatabaseHelper.COLUMN_ROLE, role);
+//        values.put(DatabaseHelper.COLUMN_TEXT, text);
+//
+//        // Convert Bitmap to byte array
+//        if (image != null) {
+//            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//            image.compress(Bitmap.CompressFormat.PNG, 100, bos);
+//            byte[] imageBytes = bos.toByteArray();
+//            values.put("image", imageBytes);
+//        }
+//
+//        db.insert(DatabaseHelper.TABLE_NAME, null, values);
+//    }
 }

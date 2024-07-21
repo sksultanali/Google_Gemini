@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">गूगल_जेमिनी</string>
+    <string name="get">प्राप्त करें</string>
+    <string name="chat">चैट</string>
+    <string name="result_text">परिणाम टेक्स्ट</string>
+</resources>

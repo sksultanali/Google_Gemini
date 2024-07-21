@@ -1,5 +1,6 @@
 package com.developerali.google_gemini;
 
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
             roleTextView.setText(message.getRole());
             if (message.getParts() != null && !message.getParts().isEmpty()) {
                 StringBuilder sb = new StringBuilder();
+                Boolean imagePartFound = false;
 
                 for (Part part : message.getParts()) {
                     if (part instanceof TextPart) {
@@ -74,11 +76,26 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
                         // Handle BlobPart if needed
                     } else if (part instanceof ImagePart) {
                         // Handle ImagePart if needed
+                        ImagePart imagePart = (ImagePart) part;
+                        Bitmap bitmap = imagePart.getImage(); // Retrieve the Bitmap
+
+                        // imageView.setVisibility(View.VISIBLE);
+                        // Glide.with(imageView.getContext())
+                        //        .asBitmap() // Load as Bitmap
+                        //        .load(bitmap) // Load the Bitmap
+                        //        .apply(new RequestOptions().placeholder(R.drawable.placeholder).error(R.drawable.error))
+                        //        .into(imageView);
+
+                        imagePartFound = true;
+
                     } else if (part instanceof FileDataPart) {
                         // Handle FileDataPart if needed
                     }
                 }
 
+                if (!imagePartFound) {
+                    // imageView.setVisibility(View.GONE); // Hide ImageView if no image part is found
+                }
                 messageTextView.setText(sb.toString().trim());
             } else {
                 messageTextView.setText("");

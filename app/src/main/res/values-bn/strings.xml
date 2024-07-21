@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">গুগল_জেমিনি</string>
+    <string name="get">পাওয়া</string>
+    <string name="chat">চ্যাট</string>
+    <string name="result_text">ফলাফল টেক্সট</string>
+</resources>

@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:text="get"/>
+        android:text="@string/get"/>
 
     <Button
         android:id="@+id/btnChat"
@@ -31,13 +31,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:text="Chat"/>
+        android:text="@string/chat"/>
+
+    <Button
+        android:id="@+id/btnTranslate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="Bengali"/>
+    <Button
+        android:id="@+id/btnTranslate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="Hindi"/>
+    <Button
+        android:id="@+id/btnTranslate3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="English"/>
 
     <TextView
         android:id="@+id/resultTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Result Text"
+        android:text="@string/result_text"
         android:layout_marginTop="10dp" />
 
 </LinearLayout>

@@ -21,6 +21,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_ROLE + " TEXT, " +
                     COLUMN_TEXT + " TEXT);";
 
+//    private static final String TABLE_CREATE =
+//            "CREATE TABLE " + TABLE_NAME + " (" +
+//                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+//                    COLUMN_ROLE + " TEXT, " +
+//                    COLUMN_TEXT + " TEXT, " +
+//                    "image BLOB);";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
